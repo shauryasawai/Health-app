@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Corner</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+          }
+          
+          header {
+            background-color: #123456;
+            color: white;
+            padding: 10px 0;
+          }
+          
+          nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+          }
+          
+          nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+          }
+          
+          .hero {
+            text-align: center;
+            padding: 20px;
+          }
+          
+          .hero-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          }
+          
+          .intro-text {
+            text-align: left;
+          }
+          
+          .intro-text p {
+            margin: 5px 0;
+          }
+          
+          button {
+            padding: 10px 20px;
+            background-color: #123456;
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+          
+          button:hover {
+            background-color: #0d1e36;
+          }
+          
+          .hero-image img {
+            max-width: 100%;
+            height: auto;
+          }
+          
+          main {
+            padding: 20px;
+          }
+          
+          .info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+          }
+          
+          .info-text, .info-slider {
+            width: 45%;
+          }
+          
+          .slider {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            overflow: hidden;
+          }
+          
+          .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+          }
+          
+          .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+          }
+          
+          .slide img {
+            width: 100%;
+            display: block;
+          }
+          
+          .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+          }
+          
+          .prev {
+            left: 0;
+          }
+          
+          .next {
+            right: 0;
+          }
+          
+          .services {
+            text-align: center;
+            margin: 20px 0;
+          }
+          
+          .service-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+          }
+          
+          .service-item {
+            background-color: #eee;
+            margin: 10px;
+            padding: 20px;
+            width: 28%;
+            text-align: center;
+            border-radius: 8px;
+          }
+          
+          .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+          }
+          
+          .gallery-item {
+            background-color: #123456;
+            color: white;
+            margin: 10px;
+            padding: 20px;
+            width: 45%;
+            text-align: center;
+            border-radius: 8px;
+          }
+          
+          .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+          }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Fitness</a></li>
+                <li><a href="#">Health</a></li>
+                <li><a href="#">Medication</a></li>
+                <li><a href="#">Nutrition</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Health Corner</h1>
+            <div class="hero-content">
+                <div class="intro-text">
+                    <p>HELLO,</p>
+                    <p>*************</p>
+                    <button>Sign Up</button>
+                </div>
+                <div class="hero-image">
+                    <img src="yoga-image.jpg" alt="Yoga">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="info">
+            <div class="info-text">
+                <p>HELLO,</p>
+                <p>*************</p>
+                <button>Learn More</button>
+            </div>
+            <div class="info-slider">
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide"><img src="" ></div>
+                        <div class="slide"><img src="" alt="Slide 2"></div>
+                        <div class="slide"><img src="" alt="Slide 3"></div>
+                        <div class="slide"><img src="" alt="Slide 4"></div>
+                    </div>
+                </div>
+                <button class="prev" onclick="moveSlide(-1)">❮</button>
+                <button class="next" onclick="moveSlide(1)">❯</button>
+            </div>
+        </section>
+        <section class="services">
+            <h2>Services We Offer:</h2>
+        </section>
+        <section class="gallery">
+            <div class="gallery-item">
+                <p>Text1</p>
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+            <div class="gallery-item">
+                <p>Text1</p>
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+            <div class="gallery-item">
+                <p>Text1</p>
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+            <div class="gallery-item">
+                <p>Text1</p>
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+        </section>
+    </main>
+
+    <script>let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const slideCount = slides.children.length;
+        
+        function showSlide(index) {
+            if (index >= slideCount) {
+                slideIndex = 0;
+            } else if (index < 0) {
+                slideIndex = slideCount - 1;
+            } else {
+                slideIndex = index;
+            }
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+        
+        function moveSlide(direction) {
+            showSlide(slideIndex + direction);
+        }
+        
+        setInterval(() => {
+            moveSlide(1);
+        }, 3000);
+        
+        document.querySelector('.prev').addEventListener('click', () => {
+            moveSlide(-1);
+        });
+        
+        document.querySelector('.next').addEventListener('click', () => {
+            moveSlide(1);
+        });
+        </script>
+</body>
+</html>
