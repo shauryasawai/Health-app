@@ -27,3 +27,49 @@ leftArrow.addEventListener('click', prevSlide);
 
 // Initialize the slideshow
 showSlide(slideIndex);
+
+
+
+
+
+
+
+const leftArrow_2 = document.querySelector('.left-arrow_2');
+const rightArrow_2 = document.querySelector('.right-arrow_2');
+const cards = document.querySelector('.cards');
+
+let currentIndex = 0;
+
+leftArrow_2.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCardPosition();
+    }
+});
+
+rightArrow_2.addEventListener('click', () => {
+    if (currentIndex < cards.children.length - 1) {
+        currentIndex++;
+        updateCardPosition();
+    }
+});
+
+function updateCardPosition() {
+    const cardWidth = cards.children[0].getBoundingClientRect().width;
+    cards.style.transform = `translateX(${-currentIndex * (cardWidth + 20)}px)`;
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cards_6 = document.querySelectorAll('.card_6');
+    cards_6.forEach(card => {
+        const img = card.querySelector('img');
+        img.onload = function() {
+            img.style.display = 'block';
+        };
+        img.onerror = function() {
+            img.style.display = 'none';
+        };
+        img.src = img.src; // Trigger image load
+    });
+});
