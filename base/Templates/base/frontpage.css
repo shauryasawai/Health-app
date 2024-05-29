@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Kodchasan;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #0D1321;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* Increased padding to make the navbar thicker */
+    z-index: 1000;
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .nav-logo, .nav-circle {
+        display: flex;
+        align-items: center;
+    }
+    
+    .circle {
+        width: 40px; /* Reverted to original width */
+        height: 40px; /* Reverted to original height */
+        background-color: #3E5C76;
+        border-radius: 50%;
+    }
+    
+    .nav-menu {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-grow: 1;
+    }
+    
+    .nav-item {
+        margin: 0 10px;
+    }
+    
+    .nav-link {
+        text-decoration: none;
+        color: #FFD7D4;
+        font-family: Kodchasan;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        color: #fff;
+    }
+    
+    .nav-item .nav-link.active {
+        background-color: #3E5C76;
+        border-radius: 20px;
+        padding: 10px 20px; /* Reverted to original padding */
+    }
+    
+    .nav-item.about-us .nav-link,
+    .nav-item.account .nav-link {
+        background-color: #3E5C76;
+        border-radius: 30px;
+        padding: 8px 25px;
+    }
+}
+#layered-waves-haikei-11{
+    background-image: url("/base/Templates/base/Assets/layered-waves-haikei.png");
+    margin-top: 15px;
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    z-index: -1;
+
+    .website-name{
+        width: 100%;
+        text-align: center;
+        font-family: Great Vibes;
+        font-weight: 200;
+        font-size: 150px;
+        color: #fff;
+    }
+
+    #container_1{
+        width: 100%;
+        height: 85%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .container_2 {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        width: 40%;
+        height: 100%;
+        padding: 100px 40px 0 40px;
+    
+        .content {
+            text-align: center;
+        }
+        
+        .text_1 {
+            text-wrap: wrap;
+            margin-bottom: 20px; /* Space between text and button */
+            font-size: 20px;
+            color: #000; /* Adjust color as needed */
+        }
+        
+        .signup-button {
+            background-color: #2D3E50; /* Dark blue color */
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 40px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: Kodchasan;
+        }
+        
+        .signup-button:hover {
+            background-color: #1B2737; /* Slightly darker shade for hover effect */
+        }
+    }
+    .container_3{
+        z-index: -2;
+        width: 50%;
+        height: 100%;
+        background-image: url("/base/Templates/base/Assets/yoga-6723315_1280.png");
+        background-size: cover;
+        background-position: top;
+    }
+}
+
+
+.container_4 {
+    margin-top: 10vh;
+    display: flex;
+    height: 60vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #3E5C76;
+    
+
+.text-section {
+    color: #000;
+    margin-right: 20px;
+}
+
+.text-section p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    width: 40vw;
+}
+
+.text-section .large-text {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.learn-more-button {
+    background-color: #D8D8D8; /* Button background color */
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-family: Kodchasan;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.learn-more-button:hover {
+    background-color: #bbb; /* Darker shade on hover */
+}
+
+.slideshow-section {
+    position: relative;
+    width: 60vw;
+    height: 100%;
+    background-color: #E0E0E0; /* Light gray color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Hide all slides initially */
+}
+
+.slide.active {
+    display: block; /* Show the active slide */
+}
+
+.arrows {
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    padding: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow {
+    font-size: 4em;
+    color: #000;
+    cursor: pointer;
+    margin: 0 5px;
+    user-select: none;
+}
+
+}

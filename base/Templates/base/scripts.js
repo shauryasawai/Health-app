@@ -1,30 +1,29 @@
 let slideIndex = 0;
-const slides = document.querySelector('.slides');
-const slideCount = slides.children.length;
+const slides = document.querySelectorAll('.slide');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
 
 function showSlide(index) {
-    if (index >= slideCount) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = slideCount - 1;
-    } else {
-        slideIndex = index;
-    }
-    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
 }
 
-function moveSlide(direction) {
-    showSlide(slideIndex + direction);
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
 }
 
-setInterval(() => {
-    moveSlide(1);
-}, 3000);
+function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+}
 
-document.querySelector('.prev').addEventListener('click', () => {
-    moveSlide(-1);
-});
+rightArrow.addEventListener('click', nextSlide);
+leftArrow.addEventListener('click', prevSlide);
 
-document.querySelector('.next').addEventListener('click', () => {
-    moveSlide(1);
-});
+// Initialize the slideshow
+showSlide(slideIndex);
