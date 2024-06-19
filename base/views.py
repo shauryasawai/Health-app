@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout
-
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -19,7 +19,7 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'base/login.html', {'form': form})
 
-
+@login_required
 def home_view(request):
     return render(request, 'base/home.html')
 
