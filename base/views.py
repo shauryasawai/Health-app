@@ -23,3 +23,9 @@ def login_view(request):
 def home_view(request):
     return render(request, 'base/home.html')
 
+@login_required
+def fitness_view(request):
+    return render(request, 'base/fitness.html')
+
+
+
