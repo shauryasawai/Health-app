@@ -8,100 +8,101 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <title>Fitness Exercises and Yoga Asanas</title>
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #99B7CB;
-        }
-        header{
-            position: fixed;
-            top: 0;
-            width: 100vw;
-            background-color: #0D1321;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 0; /* Increased padding to make the navbar thicker */
-            z-index: 1000;
-        }
-        header h1{
-            margin: 0;
-            text-decoration: none;
-            color: #FFD7D4;
-            font-family: Kodchasan;
-            font-size: 30px;
-            font-weight: 100;
-        }
-
-        .container {
-            width: 95vw;
-            margin: 80px auto 20px auto;
-
-            .card-container{
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                gap: 8px;
-
-                .card-out{
-                    border-radius: 20px;
-                    background-color: #2D3E50;
-                    min-width: 300px;
-                    height: fit-content;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 10px;
-                    box-sizing: border-box;
-                    padding: 20px;
-                    flex-grow: 1;
-                }
-
-                .card {
-                    position: relative;
-                }
-
-                img {
-                    max-width: 400px;
-                    min-height: 250px;
-                    max-height: 250px;
-                    object-fit: cover;
-                    border-radius: 15px;
-                }
-
-                .card-body {
-                    max-width: 400px;
-                }
-
-                .card-title {
-                    font-family: Kodchasan;
-                    color: #FFD7D4;
-                    font-size: 35px;
-                    font-weight: 400;
-                    margin: 10px 0;
-                }
-
-                .card-text {
-                    font-family: Kodchasan;
-                    font-size: 16px;
-                    overflow-y: scroll;
-                    height: 150px;
-                    color: #99B7CB;
-                }
-            }
 
         }
+        .container{
+            display: grid;
+            place-content: center;
+            height: inherit;
+
+        }
+
+        .bg-main{
+            height:80vh ;
+            position: relative;
+        }
+
+        .intro-section{
+            background-attachment: fixed;
+            
+            background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(Assets/fethi-bouhaouchine-NJXy_PUWpdg-unsplash\ \(1\).jpg) ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .nav-link{
+            color: var(--bs-main-color);
+        }
+
+        .nav-link:hover{
+            color: var(--secondary-color);
+        }
+        .custom-shape-divider-bottom-1719067987 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1719067987 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 92px;
+}
+
+.custom-shape-divider-bottom-1719067987 .shape-fill {
+    fill: #000000;
+}
+.yoga{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: #000000;
+    height: auto;
+    padding: 5rem;
+}
+.exercise{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: #000000;
+    height: auto;
+    padding: 5rem;
+    font-family:'Lexend Deca' , sans-sesrif;
+    color: white;
+    font-size: 2rem;
+
+}
+
+
+
+
+.health-yoga-exercise{
+    background-color: #000000;
+}
+
+        
+
+
+
+
+        
+.card{
+    transition: all 0.3s;
+    }
+
+ .card:hover{
+    transform: scale(1.03);
+ }
     </style>
 </head>
 <body>
-    <header>
-        <h1>
-            Fitness Exercises and Yoga Asanas
-        </h1>
-    </header>
+
     <div class="container">
         <div class="card-container">
             <div class="card-out">
@@ -153,6 +154,158 @@
             <div class="card-out">
                 <div class="card">
                     <img src="{% static 'img/cobra-pose_11zon.jpg' %}" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+</section>
+
+<!-- exercise-section -->
+<section>
+    <div class="exercise" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+        <h1 class="text-white" id="scrollspyHeading2"></h1>EXERCISE</h1>
+    </div>
+ </section>
+
+<section class="health-yoga-exercise" style="background-color: #000000"; data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+    <div class="container" id="scrollspyHeading3" >
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/Pushups.jpg" alt="push-ups" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Push-Ups</h5>
+                        <p class="card-text">Push-ups are a basic exercise used in civilian athletic training or physical education and commonly in military physical training. They are a common form of punishment used in the military, or in some martial arts disciplines. Perform them by lying prone, then raising and lowering the body using the arms.These need to be performed in proper form</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/squat.jpeg" alt="squats" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Squats</h5>
+                        <p class="card-text">Squats are a lower body exercise. The main emphasis is on the quadriceps and the glutes, but the squat also strengthens the hamstrings, calves, the lower back, and the core. To perform squats, stand with your feet shoulder-width apart, lower your hips back and down, then rise back up to standing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/plank.webp" alt="plank" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Plank</h5>
+                        <p class="card-text">The plank is an isometric core strength exercise that involves maintaining a position similar to a push-up for the maximum possible time. To perform a plank, get into a push-up position and hold your body off the ground with your arms straight and toes on the ground.A plank exercise is the best exercise to strengthen your core and abdomen.The isometric exercise can build muscle strength and endurance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/adho.png" alt="Downward dog" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Downward Dog (Adho Mukha Svanasana)</h5>
+                        <p class="card-text">Downward Dog is a foundational yoga pose that stretches the entire body, particularly the hamstrings, calves, and shoulders. Begin on your hands and knees, then lift your hips up and back, straightening your legs and arms.Downward dog stretches and helps to relieve tension from the neck and back.It might help to reduce body mass index. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/tree-pose-vriksasana.jpg" alt="tree-pose" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Tree Pose (Vrikshasana)</h5>
+                        <p class="card-text">Tree Pose is a balancing pose that strengthens the legs, core, and back while improving focus and concentration. Start by standing on one leg, placing the foot of the opposite leg on the inner thigh, and bringing your hands to a prayer position.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="Assets/cobra-pose_11zon.jpg" alt="Cobra" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
                         <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
