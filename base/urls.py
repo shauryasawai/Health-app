@@ -11,8 +11,4 @@ urlpatterns=[
   path('health/', views.health_view, name='Health'),
   path('game1/', views.game1, name='Game1'),
   path('game2/', views.game2, name='Game2'),
-
-
-
-
 ]
