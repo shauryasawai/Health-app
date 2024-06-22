@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,8 @@
         <div class="row g-3">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="Assets/Pushups.jpg" alt="push-ups" class="card-img-top">
+                    {% comment %} image source define path  {% endcomment %}
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="push-ups" class="card-img-top"> 
                     <div class="card-body">
                         <h5 class="card-title">Push-Ups</h5>
                         <p class="card-text">Push-ups are a basic exercise used in civilian athletic training or physical education and commonly in military physical training. They are a common form of punishment used in the military, or in some martial arts disciplines. Perform them by lying prone, then raising and lowering the body using the arms.These need to be performed in proper form</p>
