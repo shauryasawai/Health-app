@@ -6,10 +6,9 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns=[
   path('', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),
-  path('accounts/profile/', views.home_view , name='Health'),
+  path('accounts/profile/', views.home_view , name='Home'),
   path('fitness/', views.fitness_view , name='Fitness'),
-  
-
-
-
+  path('health/', views.health_view, name='Health'),
+  path('game1/', views.game1, name='Game1'),
+  path('game2/', views.game2, name='Game2'),
 ]
