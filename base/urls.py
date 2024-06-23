@@ -9,4 +9,7 @@ urlpatterns=[
   path('accounts/profile/', views.home_view , name='Home'),
   path('fitness/', views.fitness_view , name='Fitness'),
   path('health/', views.health_view, name='Health'),
+  path('medication/', views.medication_view, name='index'),
+  path('book_call/', views.book_call, name='book_call'),
+  path('success/', views.success, name='success'),
 ]

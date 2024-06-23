@@ -3,6 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from .form import CallBookingForm
 
 
 # Create your views here.
@@ -31,7 +33,22 @@ def fitness_view(request):
 def health_view(request):
     return render(request, 'base/health.html')
 
+@login_required
+def medication_view(request):
+    return render(request, 'base/medication.html')
 
+@login_required
+def book_call(request):
+    if request.method == 'POST':
+        form = CallBookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = CallBookingForm()
+    return render(request, 'base/book_call.html', {'form': form})
 
+def success(request):
+    return HttpResponse("Your call has been successfully booked!")
 
 
