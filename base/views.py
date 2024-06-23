@@ -31,12 +31,7 @@ def fitness_view(request):
 def health_view(request):
     return render(request, 'base/health.html')
 
-@login_required
-def game1(request):
-    return render(request, 'base/puzzle.html')
-@login_required
-def game2(request):
-    return render(request, 'base/memory.html')
+
 
 
 

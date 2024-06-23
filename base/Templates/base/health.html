@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +57,36 @@
         .tip h3, .article h3, .game h3 {
             margin-top: 0;
         }
+        .puzzle-container, .memory-container {
+            display: grid;
+            gap: 5px;
+            justify-content: center;
+        }
+        .puzzle-container {
+            grid-template-columns: repeat(4, 100px);
+            grid-template-rows: repeat(4, 100px);
+        }
+        .memory-container {
+            grid-template-columns: repeat(4, 100px);
+            grid-template-rows: repeat(4, 100px);
+        }
+        .puzzle-tile, .memory-tile {
+            background-color: #76c7c0;
+            color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            cursor: pointer;
+            user-select: none;
+        }
+        .memory-tile {
+            background-color: #1f1f1f;
+            border: 2px solid #76c7c0;
+        }
+        .memory-tile.flipped {
+            background-color: #76c7c0;
+        }
         footer {
             background-color: #1f1f1f;
             text-align: center;
@@ -105,16 +134,132 @@
             <div class="section-title">Fun Games</div>
             <div class="game">
                 <h3>Game 1: Puzzle Solver</h3>
-                <p>Challenge your mind with this fun and engaging puzzle game. Click <a href="/game1" style="color: #76c7c0;">here</a> to play.</p>
+                <div id="puzzle-container" class="puzzle-container"></div>
+                <button onclick="shuffleTiles()">Shuffle</button>
             </div>
             <div class="game">
                 <h3>Game 2: Memory Match</h3>
-                <p>Improve your memory with this exciting matching game. Click <a href="/game2" style="color: #76c7c0;">here</a> to play.</p>
+                <div id="memory-container" class="memory-container"></div>
+                <button onclick="initMemoryGame()">Restart</button>
             </div>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 Mental Health Well-being. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Puzzle Solver Game
+        const puzzleContainer = document.getElementById('puzzle-container');
+        let tiles = [];
+
+        function initPuzzle() {
+            for (let i = 1; i <= 15; i++) {
+                const tile = document.createElement('div');
+                tile.classList.add('puzzle-tile');
+                tile.textContent = i;
+                tile.addEventListener('click', () => moveTile(i));
+                tiles.push(tile);
+                puzzleContainer.appendChild(tile);
+            }
+            const emptyTile = document.createElement('div');
+            emptyTile.classList.add('puzzle-tile');
+            tiles.push(emptyTile);
+            puzzleContainer.appendChild(emptyTile);
+        }
+
+        function moveTile(index) {
+            const tileIndex = tiles.findIndex(tile => tile.textContent == index);
+            const emptyIndex = tiles.findIndex(tile => !tile.textContent);
+            const validMoves = [
+                tileIndex - 1, // left
+                tileIndex + 1, // right
+                tileIndex - 4, // up
+                tileIndex + 4  // down
+            ];
+            if (validMoves.includes(emptyIndex) &&
+                (Math.abs(tileIndex - emptyIndex) === 1 || Math.abs(tileIndex - emptyIndex) === 4)) {
+                swapTiles(tileIndex, emptyIndex);
+            }
+        }
+
+        function swapTiles(index1, index2) {
+            const temp = tiles[index1];
+            tiles[index1] = tiles[index2];
+            tiles[index2] = temp;
+            renderPuzzle();
+        }
+
+        function renderPuzzle() {
+            puzzleContainer.innerHTML = '';
+            tiles.forEach(tile => puzzleContainer.appendChild(tile));
+        }
+
+        function shuffleTiles() {
+            for (let i = tiles.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                swapTiles(i, j);
+            }
+        }
+
+        initPuzzle();
+
+        // Memory Match Game
+        const memoryContainer = document.getElementById('memory-container');
+        let memoryTiles = [];
+        let flippedTiles = [];
+        let matchedTiles = [];
+
+        function initMemoryGame() {
+            memoryContainer.innerHTML = '';
+            memoryTiles = [];
+            flippedTiles = [];
+            matchedTiles = [];
+            const numbers = [...Array(8).keys()].map(n => n + 1);
+            const pairs = [...numbers, ...numbers];
+            pairs.sort(() => Math.random() - 0.5);
+
+            pairs.forEach(number => {
+                const tile = document.createElement('div');
+                tile.classList.add('memory-tile');
+                tile.dataset.number = number;
+                tile.addEventListener('click', () => flipTile(tile));
+                memoryTiles.push(tile);
+                memoryContainer.appendChild(tile);
+            });
+        }
+
+        function flipTile(tile) {
+            if (flippedTiles.length < 2 && !tile.classList.contains('flipped')) {
+                tile.classList.add('flipped');
+                tile.textContent = tile.dataset.number;
+                flippedTiles.push(tile);
+                if (flippedTiles.length === 2) {
+                    checkMatch();
+                }
+            }
+        }
+
+        function checkMatch() {
+            const [tile1, tile2] = flippedTiles;
+            if (tile1.dataset.number === tile2.dataset.number) {
+                matchedTiles.push(tile1, tile2);
+                flippedTiles = [];
+                if (matchedTiles.length === memoryTiles.length) {
+                    setTimeout(() => alert('You won!'), 500);
+                }
+            } else {
+                setTimeout(() => {
+                    tile1.classList.remove('flipped');
+                    tile2.classList.remove('flipped');
+                    tile1.textContent = '';
+                    tile2.textContent = '';
+                    flippedTiles = [];
+                }, 1000);
+            }
+        }
+
+        initMemoryGame();
+    </script>
 </body>
 </html>
