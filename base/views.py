@@ -51,4 +51,6 @@ def book_call(request):
 def success(request):
     return HttpResponse("Your call has been successfully booked!")
 
-
+@login_required
+def chat_room(request):
+    return render(request, 'base/room.html')
