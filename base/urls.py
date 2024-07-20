@@ -2,6 +2,7 @@ from django.urls import path
 from django.urls import include, path
 from . import views
 from django.contrib.auth import views as auth_views
+from django.urls import path, include
 
 
 urlpatterns=[
@@ -14,4 +15,6 @@ urlpatterns=[
   path('success/', views.success, name='success'),
   path('room/', views.index, name='index'),
   path('<str:room_name>/', views.room, name='room'),
+  path('chat/', views.chat_view, name='chat'),
+  path('chat_page/', views.chat_page_view, name='chat_page'),
 ]

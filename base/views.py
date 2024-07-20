@@ -5,8 +5,29 @@ from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .form import CallBookingForm
+from django.shortcuts import render
+from django.http import JsonResponse
+import openai
+from django.conf import settings
 
+openai.api_key = settings.OPENAI_API_KEY
 
+def chat_view(request):
+    if request.method == 'POST':
+        user_message = request.POST.get('message')
+
+        if user_message:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": user_message},
+                ]
+            )
+            reply = response.choices[0].message['content']
+            return JsonResponse({'reply': reply})
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 # Create your views here.
 
 
@@ -20,6 +41,11 @@ def login_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'base/login.html', {'form': form})
+
+
+def chat_page_view(request):
+    return render(request, 'base/chat.html')
+
 
 @login_required
 def home_view(request):

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with GPT</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Chat with GPT</h1>
+    <textarea id="message" rows="4" cols="50"></textarea><br>
+    <button id="send">Send</button>
+    <p id="reply"></p>
+
+    <script>
+        $(document).ready(function(){
+            $('#send').click(function(){
+                var message = $('#message').val();
+                $.post('/myapp/chat/', {'message': message}, function(data){
+                    $('#reply').text(data.reply);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
