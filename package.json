@@ -1,0 +1,7 @@
+{
+    "name": "health-app",
+    "version": "1.0.0",
+    "scripts": {
+        "preinstall": "sh build.sh"
+    }
+}

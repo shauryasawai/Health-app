@@ -12,13 +12,5 @@
             "src": "/(.*)",
             "dest": "Health_app/wsgi.py"
         }
-    ],
-    "build": {
-        "env": {
-            "PATH": "/root/.cargo/bin:$PATH"
-        },
-        "commands": [
-            "sh build.sh"
-        ]
-    }
+    ]
 }

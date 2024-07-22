@@ -7,4 +7,4 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source $HOME/.cargo/env
 
 # Proceed with the installation of Python dependencies
-pip3.12 install --disable-pip-version-check --target . --upgrade -r /vercel/path0/requirements.txt
+pip3 install --disable-pip-version-check --target . --upgrade -r /vercel/path0/requirements.txt
