@@ -13,8 +13,4 @@ urlpatterns=[
   path('medication/', views.medication_view, name='index'),
   path('book_call/', views.book_call, name='book_call'),
   path('success/', views.success, name='success'),
-  path('room/', views.index, name='index'),
-  path('<str:room_name>/', views.room, name='room'),
-  path('chat/', views.chat_view, name='chat'),
-  path('chat_page/', views.chat_page_view, name='chat_page'),
 ]
