@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "health-app/wsgi.py",
+        "src": "Health_app/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "10mb", "runtime": "python3.12" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "health-app/wsgi.py"
+            "dest": "Health_app/wsgi.py"
         }
     ]
 }
