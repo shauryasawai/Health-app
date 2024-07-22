@@ -12,5 +12,6 @@
             "src": "/(.*)",
             "dest": "Health_app/wsgi.py"
         }
-    ]
+    ],
+    "buildCommand": "sh vercel.sh"
 }
