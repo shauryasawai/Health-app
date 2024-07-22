@@ -9,25 +9,46 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import openai
 from django.conf import settings
-
-openai.api_key = settings.OPENAI_API_KEY
+import openai
+from django.conf import settings
+from .form import ChatForm
 
 def chat_view(request):
+    response_text = ""
     if request.method == 'POST':
-        user_message = request.POST.get('message')
-
-        if user_message:
+        form = ChatForm(request.POST)
+        if form.is_valid():
+            message = form.cleaned_data['message']
+            openai.api_key = settings.OPENAI_API_KEY
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": user_message},
-                ]
+                messages=[{"role": "user", "content": message}],
+                max_tokens=150
             )
-            reply = response.choices[0].message['content']
-            return JsonResponse({'reply': reply})
+            response_text = response['choices'][0]['message']['content'].strip()
+    else:
+        form = ChatForm()
 
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    return render(request, 'base/chat.html', {'form': form, 'response_text': response_text})
+
+# Create your views here.
+from django.shortcuts import render
+from .form import PredictionForm
+from .utils import predict_blood_sugar
+
+def predict_view(request):
+    if request.method == 'POST':
+        form = PredictionForm(request.POST)
+        if form.is_valid():
+            bmi = form.cleaned_data['bmi']
+            blood_pressure = form.cleaned_data['blood_pressure']
+            result = predict_blood_sugar(bmi, blood_pressure)
+            return render(request, 'base/result.html', {'result': result})
+    else:
+        form = PredictionForm()
+    return render(request, 'base/predict.html', {'form': form})
+
+
 # Create your views here.
 
 
