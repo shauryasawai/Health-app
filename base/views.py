@@ -85,6 +85,10 @@ def medication_view(request):
     return render(request, 'base/medication.html')
 
 @login_required
+def nutrition_view(request):
+    return render(request, 'base/nutrition.html')
+
+@login_required
 def book_call(request):
     if request.method == 'POST':
         form = CallBookingForm(request.POST)

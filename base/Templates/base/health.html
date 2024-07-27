@@ -18,6 +18,31 @@
             text-align: center;
             border-bottom: 2px solid #2a2a2a;
         }
+        .contact-form {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin-bottom: 5px;
+        }
+        .contact-form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #6200ee;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;}
         header h1 {
             margin: 0;
             font-size: 2em;
@@ -144,10 +169,24 @@
             </div>
         </section>
     </div>
+    <section class="contact-form">
+        <h2>Book a Call with Our Health Experts</h2>
+        <form method="post" action="{% url 'book_call' %}">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" name="date" required>
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
     <footer>
-        <p>&copy; 2024 Mental Health Well-being. All rights reserved.</p>
+        <p>&copy; 2024 Fitness Supplements. All rights reserved.</p>
     </footer>
-
     <script>
         // Puzzle Solver Game
         const puzzleContainer = document.getElementById('puzzle-container');
