@@ -81,7 +81,7 @@ def health_view(request):
     return render(request, 'base/health.html')
 
 @login_required
-def medication_view(request):
+def medication(request):
     return render(request, 'base/medication.html')
 
 @login_required
@@ -108,3 +108,26 @@ def room(request, room_name):
     })
 def index(request):
     return render(request, 'base/index.html')
+
+from django.shortcuts import render, get_object_or_404
+from .models import Quiz, Question, UserResponse
+
+@login_required
+def quiz_list(request):
+    quizzes = Quiz.objects.all()
+    return render(request, 'base/quiz_list.html', {'quizzes': quizzes})
+
+@login_required
+def take_quiz(request, quiz_id):
+    quiz = get_object_or_404(Quiz, pk=quiz_id)
+    if request.method == 'POST':
+        for question in quiz.questions.all():
+            selected_option = request.POST.get(str(question.id))
+            UserResponse.objects.create(
+                user=request.user,
+                question=question,
+                selected_option=selected_option
+            )
+        return render(request, 'base/quiz_result.html', {'quiz': quiz})
+    else:
+        return render(request, 'base/take_quiz.html', {'quiz': quiz})
