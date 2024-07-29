@@ -49,3 +49,9 @@ class UserResponse(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     selected_option = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class UserInput(models.Model):
+    text = models.TextField()
+    mood = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True)

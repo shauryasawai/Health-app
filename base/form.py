@@ -12,3 +12,6 @@ class ChatForm(forms.Form):
 class PredictionForm(forms.Form):
     bmi = forms.FloatField(label='BMI')
     blood_pressure = forms.FloatField(label='Blood Pressure')
+
+class MoodForm(forms.Form):
+    text = forms.CharField(widget=forms.Textarea, label='Enter your text')

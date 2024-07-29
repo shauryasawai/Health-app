@@ -3,6 +3,7 @@ from django.urls import include, path
 from . import views
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
+from .views import mood_predictor_view
 
 
 urlpatterns=[
@@ -18,5 +19,5 @@ urlpatterns=[
   path('predict/', views.predict_view, name='predict'),
   path('quizzes/', views.quiz_list, name='quiz_list'),
   path('quiz/<int:quiz_id>/', views.take_quiz, name='take_quiz'),
-  
+  path('mood/', mood_predictor_view, name='mood_predictor')
 ]

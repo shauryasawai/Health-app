@@ -131,3 +131,43 @@ def take_quiz(request, quiz_id):
         return render(request, 'base/quiz_result.html', {'quiz': quiz})
     else:
         return render(request, 'base/take_quiz.html', {'quiz': quiz})
+
+# predictor/views.py
+# health_app/views.py
+import os
+import joblib
+from django.shortcuts import render
+from .form import MoodForm
+from .models import UserInput
+
+# Define the path to the directory where the model and vectorizer are stored
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, 'mood_model.pkl')
+VECTORIZER_PATH = os.path.join(BASE_DIR, 'vectorizer.pkl')
+
+# Check if the model and vectorizer files exist
+if not os.path.exists(MODEL_PATH):
+    raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
+if not os.path.exists(VECTORIZER_PATH):
+    raise FileNotFoundError(f"Vectorizer file not found: {VECTORIZER_PATH}")
+
+# Load the machine learning model and vectorizer
+model = joblib.load(MODEL_PATH)
+vectorizer = joblib.load(VECTORIZER_PATH)
+@login_required
+def predict_mood(text):
+    X = vectorizer.transform([text])
+    prediction = model.predict(X)
+    return prediction[0]
+@login_required
+def mood_predictor_view(request):
+    if request.method == 'POST':
+        form = MoodForm(request.POST)
+        if form.is_valid():
+            text = form.cleaned_data['text']
+            mood = predict_mood(text)
+            UserInput.objects.create(text=text, mood=mood)
+            return render(request, 'base/mood_result.html', {'mood': mood})
+    else:
+        form = MoodForm()
+    return render(request, 'base/mood_form.html', {'form': form})
