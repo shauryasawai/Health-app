@@ -154,12 +154,12 @@ if not os.path.exists(VECTORIZER_PATH):
 # Load the machine learning model and vectorizer
 model = joblib.load(MODEL_PATH)
 vectorizer = joblib.load(VECTORIZER_PATH)
-@login_required
+
 def predict_mood(text):
     X = vectorizer.transform([text])
     prediction = model.predict(X)
     return prediction[0]
-@login_required
+
 def mood_predictor_view(request):
     if request.method == 'POST':
         form = MoodForm(request.POST)
@@ -171,3 +171,7 @@ def mood_predictor_view(request):
     else:
         form = MoodForm()
     return render(request, 'base/mood_form.html', {'form': form})
+
+@login_required
+def predictor_view(request):
+    return render(request, 'base/health_predictor.html')

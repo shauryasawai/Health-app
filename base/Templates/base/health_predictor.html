@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health App</title>
+    <style>body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .container {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .box {
+        background-color: #1f1f1f;
+        border: 2px solid #333;
+        border-radius: 10px;
+        padding: 40px;
+        text-align: center;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+    
+    .box a {
+        text-decoration: none;
+        color: #bb86fc;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    .box:hover {
+        transform: scale(1.1);
+        background-color: #333;
+    }
+    
+    #blood-sugar-box {
+        border-color: #ff7043;
+    }
+    
+    #mood-box {
+        border-color: #42a5f5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="blood-sugar-box">
+            <a href="/predict">Blood Sugar Predictor</a>
+        </div>
+        <div class="box" id="mood-box">
+            <a href="/mood">Mood Predictor</a>
+        </div>
+    </div>
+</body>
+</html>
