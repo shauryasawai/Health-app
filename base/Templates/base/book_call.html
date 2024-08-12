@@ -74,7 +74,7 @@
             }
 
             50% {
-                font-size: 26px;
+                font-size: 25px;
             }
 
             100% {
@@ -127,8 +127,9 @@
         <section class="contact-form">
             <h2 class="heading">Book a Call with Our Health Experts</h2>
             <form method="post" action="{% url 'book_call' %}">
-                {% csrf_token %}
+                {% csrf_token %} 
                 {{ form.as_p }}
+                <!-- this is some django code -->
                 <button type="submit">Book Now</button>
             </form>
         </section>

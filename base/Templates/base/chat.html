@@ -4,6 +4,30 @@
     <title>Chat with GPT</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<style>
+    body{
+        background-image: url(Assets2/Images/chat-with-gpt.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #message{
+        border: 4px solid rgb(222, 87, 222);
+        border-radius: 10px;
+        opacity: 0.6;
+        font-size: 23px;
+    }
+    #send{
+        padding: 10px 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+</style>
 <body>
     <h1>Chat with GPT</h1>
     <textarea id="message" rows="4" cols="50"></textarea><br>
