@@ -23,13 +23,20 @@
         font-size: 23px;
     }
     #send{
-        padding: 10px 20px;
+        padding: 10px 50px;
+        background-color: rgb(25, 238, 25);
         border: 2px solid black;
         border-radius: 10px;
+        font-size: 23px;
+    }
+    #send:hover{
+        background-color: rgb(21, 179, 21);
+        cursor: pointer;
     }
 </style>
 <body>
     <h1>Chat with GPT</h1>
+    <h3>Type down your feelings here:</h3>
     <textarea id="message" rows="4" cols="50"></textarea><br>
     <button id="send">Send</button>
     <p id="reply"></p>
