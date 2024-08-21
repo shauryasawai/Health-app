@@ -357,3 +357,31 @@ def about_us(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
+
+from .form import BMICalculatorForm
+
+def bmi_calculator(request):
+    bmi = None
+    category = None
+
+    if request.method == 'POST':
+        form = BMICalculatorForm(request.POST)
+        if form.is_valid():
+            height = form.cleaned_data['height']
+            weight = form.cleaned_data['weight']
+            bmi = weight / ((height / 100) ** 2)
+
+            if bmi < 18.5:
+                category = 'Underweight'
+            elif 18.5 <= bmi < 24.9:
+                category = 'Normal weight'
+            elif 25 <= bmi < 29.9:
+                category = 'Overweight'
+            else:
+                category = 'Obese'
+    else:
+        form = BMICalculatorForm()
+
+    return render(request, 'base/bmi.html', {'form': form, 'bmi': bmi, 'category': category})

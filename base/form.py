@@ -64,3 +64,7 @@ class CustomPasswordResetForm(PasswordResetForm):
 
 class PasswordResetForm(forms.Form):
     email = forms.EmailField()
+
+class BMICalculatorForm(forms.Form):
+    height = forms.FloatField(label='Height (cm)', min_value=0)
+    weight = forms.FloatField(label='Weight (kg)', min_value=0)
