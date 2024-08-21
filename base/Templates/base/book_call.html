@@ -1,90 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book a Call</title>
-    <style>body {
-      background-color: #121212;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-  }
-  
-  header {
-      background-color: #1f1f1f;
-      padding: 20px;
-      text-align: center;
-  }
-  
-  h1 {
-      margin: 0;
-  }
-  
-  main {
-      padding: 20px;
-  }
-  
-  .supplement {
-      border-bottom: 1px solid #333333;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-  }
-  
-  .supplement img {
-      max-width: 100%;
-      height: auto;
-  }
-  
-  .contact-form {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 5px;
-  }
-  
-  .contact-form form {
-      display: flex;
-      flex-direction: column;
-  }
-  
-  .contact-form label {
-      margin-bottom: 5px;
-  }
-  
-  .contact-form input {
-      margin-bottom: 15px;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-  }
-  
-  .contact-form button {
-      padding: 10px;
-      background-color: #6200ee;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-  }
-  
-  footer {
-      background-color: #1f1f1f;
-      padding: 10px;
-      text-align: center;
-  }
-  </style>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        body {
+            background-image: url(Assets2/Images/book-a-call1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .supplement {
+            border-bottom: 1px solid #333333;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .supplement img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .contact-form {
+            background-color: #1f1f1f;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 23px;
+        }
+
+        .heading {
+            font-size: 20px;
+            animation: sizeChange 2s infinite;
+        }
+
+        @keyframes sizeChange {
+            0% {
+                font-size: 23px;
+            }
+
+            50% {
+                font-size: 25px;
+            }
+
+            100% {
+                font-size: 23px;
+            }
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-form label {
+            margin-bottom: 5px;
+        }
+
+        .contact-form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            padding: 10px;
+            background-color: #6200ee;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .contact-form button:hover {
+            font-size: 1.4rem;
+            background-color: #4603a4;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
     <main>
         <section class="contact-form">
-            <h2>Book a Call with Our Health Experts</h2>
+            <h2 class="heading">Book a Call with Our Health Experts</h2>
             <form method="post" action="{% url 'book_call' %}">
-                {% csrf_token %}
+                {% csrf_token %} 
                 {{ form.as_p }}
+                <!-- this is some django code -->
                 <button type="submit">Book Now</button>
             </form>
         </section>
     </main>
 </body>
+
 </html>
