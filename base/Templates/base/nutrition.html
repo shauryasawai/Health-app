@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutrition and Balanced Diet</title>
     <style>
         body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
-        }
 
-        .container {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #333;
-            border-radius: 10px;
-            background-color: #1e1e1e;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1s ease-in-out;
-            max-width: 800px;
-            width: 100%;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        .buttons {
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            background-color: #3b3b3b;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #575757;
-        }
-
-        .diet-info {
-            display: none;
-            text-align: left;
-            animation: slideIn 0.5s ease-in-out;
-            margin-top: 20px;
-        }
-
-        #diet-image {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-
-        .diet-plan {
-            margin-top: 20px;
-        }
-
-        .diet-plan ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .diet-plan li {
-            background: #2e2e2e;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+            /* background-color: #121212; */
+                background-image: url("static/Images/Nutrition-bg.jpeg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                color: #ffffff;
+                font-family: 'Arial',
+                    sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                flex-direction: column;
             }
-            to {
-                opacity: 1;
-            }
-        }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
+            .container {
+                text-align: center;
+                padding: 20px;
+                border: 1px solid #333;
+                border-radius: 10px;
+                background-color: #1e1e1e;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                animation: fadeIn 1s ease-in-out;
+                max-width: 800px;
+                width: 100%;
             }
-            to {
-                transform: translateY(0);
-                opacity: 1;
+
+            h1 {
+                margin-bottom: 20px;
+                font-size: 2em;
             }
-        }
+
+            .buttons {
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                background-color: #3b3b3b;
+                color: #ffffff;
+                border: none;
+                padding: 10px 20px;
+                margin: 10px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .btn:hover {
+                background-color: #2ebb0b;
+            }
+
+            .diet-info {
+                display: none;
+                text-align: left;
+                animation: slideIn 0.5s ease-in-out;
+                margin-top: 20px;
+            }
+
+            #diet-image {
+                max-width: 100%;
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+
+            .diet-plan {
+                margin-top: 20px;
+            }
+
+            .diet-plan ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .diet-plan li {
+                background: #2e2e2e;
+                padding: 10px;
+                margin: 5px 0;
+                border-radius: 5px;
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideIn {
+                from {
+                    transform: translateY(20px);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Nutrition and Balanced Diet</h1>
@@ -186,4 +196,5 @@
         }
     </script>
 </body>
+
 </html>
