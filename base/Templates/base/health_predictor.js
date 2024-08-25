@@ -1,7 +1,7 @@
 const box1 = document.querySelector('.box1');
 
 box1.addEventListener('mouseover', function() {
-    document.body.style.backgroundImage = "url('Assets2/Images/blood sugar levels.webp')";
+    document.body.style.backgroundImage = "url(/static/Images/blood-sugar-levels.webp)";
     document.body.style.backgroundColor = "#373e40"
     document.body.style.backgroundRepeat = "no-repeat"; 
     document.body.style.backgroundSize = "fit";  
@@ -21,7 +21,7 @@ box1.addEventListener('mouseout', function() {
 const box2 = document.querySelector('.box2');
 
 box2.addEventListener('mouseover', function() {
-    document.body.style.backgroundImage = "url(Assets2/Images/mood-predictor.png)";
+    document.body.style.backgroundImage = "url(/static/Images/mood-predictor.png)";
     document.body.style.backgroundColor = "#0d173f"
     document.body.style.backgroundRepeat = "no-repeat"; 
     document.body.style.backgroundSize = "fit";  
