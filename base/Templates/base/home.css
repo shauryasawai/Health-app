@@ -11,7 +11,7 @@ body {
 }
 
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     background-color: #0D1321;
@@ -19,7 +19,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     /* Increased padding to make the navbar thicker */
     z-index: 1000;
 
@@ -93,7 +93,7 @@ body {
 
 #layered-waves-haikei-11 {
     background-image: url("/static/img/layered-waves-haikei.png");
-    margin-top: 25px;
+    /* margin-top: 25px; */
     width: 100%;
     height: 100vh;
     padding-top: 50px;
