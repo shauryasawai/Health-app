@@ -36,3 +36,23 @@ box2.addEventListener('mouseout', function() {
     document.body.style.backgroundSize = '';
     document.body.style.backgroundPosition = '';
 });
+
+
+const box3 = document.querySelector('.box3');
+
+box3.addEventListener('mouseover', function() {
+    document.body.style.backgroundImage = "url(https://media.geeksforgeeks.org/wp-content/uploads/20231206171725/BMI-2.png)";
+    document.body.style.backgroundColor = "#ffff94"
+    document.body.style.backgroundRepeat = "no-repeat"; 
+    document.body.style.backgroundSize = "contain";  
+    document.body.style.backgroundPosition = "top";  
+    document.body.style.zIndex = '10'; 
+});
+
+box3.addEventListener('mouseout', function() {
+    document.body.style.backgroundImage = ''; 
+    document.body.style.backgroundColor = '';
+    document.body.style.backgroundRepeat = '';
+    document.body.style.backgroundSize = '';
+    document.body.style.backgroundPosition = '';
+});
