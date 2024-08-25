@@ -18,16 +18,19 @@
 <link rel="stylesheet" href="new-home-utilities.css">
 
 <body>
-    <nav class="navbar w-full">
-        <div class="nav-container">
+    <div class="video-div">
+        <video autoplay loop class="video" src="/static/Images/WhatsApp Video 2024-08-25 at 7.11.41 PM.mp4"></video>
+    </div>
 
+    <div class="main">
+        <nav class="navbar">
             <ul class="nav-menu">
-                <li class="nav-item about-us"><a href="#" class="nav-link">ABOUT US</a></li>
-                <li class="nav-item"><a href="/fitness" class="nav-link">FITNESS</a></li>
-                <li class="nav-item"><a href="/health" class="nav-link">MENTAL HEALTH</a></li>
-                <li class="nav-item"><a href="/medication" class="nav-link">MEDICATION/SUPPLEMENTS</a></li>
-                <li class="nav-item"><a href="/nutrition" class="nav-link">NUTRITION</a></li>
-                <li class="nav-item account"><a href="/predictors" class="nav-link">HEALTH PREDICTOR</a></li>
+                <a href="#" class="nav-link"><li class="nav-item about-us">ABOUT US</li></a>
+                <a href="#" class="nav-link"><li class="nav-item about-us">FITNESS</li></a>
+                <a href="#" class="nav-link"><li class="nav-item about-us">MENTAL HEALTH</li></a>
+                <a href="#" class="nav-link"><li class="nav-item about-us">MEDICATIONS/SUPPLEMENTS</li></a>
+                <a href="#" class="nav-link"><li class="nav-item about-us">NUTRITION</li></a>
+                <a href="#" class="nav-link"><li class="nav-item about-us">HEALTH PREDICTOR</li></a>
             </ul>
             <div class="dropdown">
                 <div class="flex">
@@ -46,26 +49,17 @@
                 </div>
                 <div>{{ user.get_username }}</div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="page1 py">
-        <div class="flex">
-            <p class="text-1">Health Corner</p>
-        </div>
-
-        <div>
-            <p>Your health is your greatest asset—let’s make it count! Imagine waking up energized and ready to take on the day. By focusing on balanced nutrition, regular exercise, and mindfulness, you’re not just adding years to your life, but life to your years.</p>
-
+        <h1 class="website-name">Health Corner</h1>
+        <div class="text-1">
+            <p>Your health is your greatest asset—let’s make it count! Imagine waking up energized and ready to take on
+                the day. By focusing on balanced nutrition, regular exercise, and mindfulness, you’re not just adding
+                years to your life, but life to your years.</p>
             <p>Let’s embark on this journey together for a healthier, happier you!</p>
         </div>
-
     </div>
 
-    <!-- page2 -->
-     <div class="page2">
-
-     </div>
 </body>
 
 </html>
