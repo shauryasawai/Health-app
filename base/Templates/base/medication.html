@@ -3,204 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Supplements Suggestion</title>
-    <style>body {
-        font-family: Arial, sans-serif;
-        background-color: #121212;
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .container {
-        width: 80%;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #1e1e1e;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    
-    header {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    
-    header h1 {
-        font-size: 2.5em;
-        margin: 0;
-        color: #ffca28;
-    }
-    
-    header p {
-        color: #bbbbbb;
-        font-size: 1.2em;
-    }
-    
-    .form-section {
-        margin-bottom: 20px;
-    }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    label {
-        margin-bottom: 10px;
-        font-size: 1.1em;
-        color: #ffca28;
-    }
-    
-    select, button {
-        padding: 10px;
-        font-size: 1em;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        border: 1px solid #444;
-        background-color: #333;
-        color: #ffffff;
-    }
-    
-    button {
-        background-color: #ffca28;
-        color: #333;
-        border: none;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #ffb300;
-    }
-    
-    .results {
-        border-top: 1px solid #444;
-        padding-top: 20px;
-    }
-    
-    .results h2 {
-        font-size: 1.8em;
-        color: #ffca28;
-    }
-    
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    
-    ul li {
-        background-color: #2e2e2e;
-        margin-bottom: 10px;
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 1em;
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-    }
-    
-    ul li img {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-        border-radius: 5px;
-    }
+    <title>Supplement Suggestions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #bb86fc;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e0e0e0;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #bb86fc;
+            color: #1e1e1e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #cfb2ff;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #suggestions {
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #2a2a2a;
+            color: #bb86fc;
+        }
+
+        td {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Medical Supplements Suggestion</h1>
-            <p>Find the right supplements for your body type.</p>
-        </header>
-        <section class="form-section">
-            <form id="supplement-form">
-                <label for="body-type">Select Your Body Type:</label>
-                <select id="body-type" name="body-type">
-                    <option value="ectomorph">Ectomorph</option>
-                    <option value="mesomorph">Mesomorph</option>
-                    <option value="endomorph">Endomorph</option>
-                </select>
-                <button type="submit">Get Suggestions</button>
-            </form>
-        </section>
-        <section id="supplement-results" class="results">
-            <h2>Suggested Supplements</h2>
-            <ul id="supplement-list">
-                <!-- Suggestions will be displayed here -->
-            </ul>
-            <section class="contact-form">
-                <h2>Book a Call with Our Health Experts</h2>
-                <form method="post" action="{% url 'book_call' %}">
-                    {% csrf_token %}
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="date">Preferred Date:</label>
-                    <input type="date" id="date" name="date" required>
-                    <button type="submit">Book Now</button>
-                </form>
-        </section>
+        <h1>BMI-Based Supplement Suggestions</h1>
+
+        <form id="bmiForm">
+            <div class="input-group">
+                <label for="bmi">Enter Your BMI:</label>
+                <input type="number" id="bmi" name="bmi" step="0.1" required>
+            </div>
+
+            <button type="submit">Get Suggestions</button>
+        </form>
+
+        <div id="suggestions" class="hidden">
+            <h2>Suggested Supplements and Dosage</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Supplement</th>
+                        <th>Dosage</th>
+                    </tr>
+                </thead>
+                <tbody id="supplementTable">
+                   
+                </tbody>
+            </table>
+        </div>
     </div>
-    <script>document.getElementById('supplement-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const bodyType = document.getElementById('body-type').value;
-        displaySupplements(bodyType);
-    });
-    
-    function displaySupplements(bodyType) {
-        const supplementList = document.getElementById('supplement-list');
-        supplementList.innerHTML = ''; // Clear previous suggestions
-    
-        let suggestions = [];
-    
-        if (bodyType === 'ectomorph') {
-            suggestions = [
-                {name: 'Protein Powder', dosage: '20-30g post-workout', img: 'images/protein-powder.jpg'},
-                {name: 'Creatine', dosage: '5g daily', img: 'images/creatine.jpg'},
-                {name: 'BCAA', dosage: '5-10g during workouts', img: 'images/bcaa.jpg'},
-                {name: 'Vitamin B Complex', dosage: '1 tablet daily with a meal', img: 'images/vitamin-b.jpg'},
-                {name: 'Fish Oil', dosage: '1000mg twice daily', img: 'images/fish-oil.jpg'},
-                {name: 'Multivitamin', dosage: '1 tablet daily', img: 'images/multivitamin.jpg'},
-                {name: 'Magnesium', dosage: '400mg daily', img: 'images/magnesium.jpg'}
-            ];
-        } else if (bodyType === 'mesomorph') {
-            suggestions = [
-                {name: 'Whey Protein', dosage: '20-30g post-workout', img: 'images/whey-protein.jpg'},
-                {name: 'Casein Protein', dosage: '20-30g before bed', img: 'images/casein-protein.jpg'},
-                {name: 'Multivitamin', dosage: '1 tablet daily', img: 'images/multivitamin.jpg'},
-                {name: 'Omega-3', dosage: '1000mg twice daily', img: 'images/omega-3.jpg'},
-                {name: 'Glutamine', dosage: '5g post-workout', img: 'images/glutamine.jpg'},
-                {name: 'ZMA', dosage: '1 serving before bed', img: 'images/zma.jpg'},
-                {name: 'Vitamin D', dosage: '2000 IU daily', img: 'images/vitamin-d.jpg'}
-            ];
-        } else if (bodyType === 'endomorph') {
-            suggestions = [
-                {name: 'Green Tea Extract', dosage: '500mg twice daily', img: 'images/green-tea.jpg'},
-                {name: 'CLA', dosage: '1000mg three times daily', img: 'images/cla.jpg'},
-                {name: 'Fiber Supplements', dosage: '5g daily', img: 'images/fiber.jpg'},
-                {name: 'Probiotics', dosage: '1 capsule daily', img: 'images/probiotics.jpg'},
-                {name: 'L-Carnitine', dosage: '1000mg daily', img: 'images/l-carnitine.jpg'},
-                {name: 'Chromium Picolinate', dosage: '200mcg daily', img: 'images/chromium.jpg'},
-                {name: 'Apple Cider Vinegar', dosage: '1-2 tbsp daily', img: 'images/apple-cider.jpg'}
-            ];
-        }
-    
-        suggestions.forEach(supplement => {
-            const listItem = document.createElement('li');
-            const img = document.createElement('img');
-            img.src = supplement.img;
-            img.alt = supplement.name;
-            const text = document.createTextNode(`${supplement.name}: ${supplement.dosage}`);
-            listItem.appendChild(img);
-            listItem.appendChild(text);
-            supplementList.appendChild(listItem);
+
+    <script>
+        document.getElementById('bmiForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const bmi = parseFloat(document.getElementById('bmi').value);
+            let supplements = [];
+            let dosages = [];
+
+            if (bmi < 16) {
+                supplements = ['Multivitamins', 'Protein Supplements', 'Omega-3', 'Iron', 'Vitamin B12', 'Folic Acid', 'Creatine'];
+                dosages = ['1 tablet daily', '20g daily', '1g daily', '18mg daily', '2.4mcg daily', '400mcg daily', '3g daily'];
+            } else if (bmi >= 16 && bmi < 18.5) {
+                supplements = ['Multivitamins', 'Protein Supplements', 'Omega-3', 'Zinc', 'Vitamin B6', 'Whey Protein', 'BCAAs'];
+                dosages = ['1 tablet daily', '25g daily', '1g daily', '11mg daily', '1.3mg daily', '30g daily', '5g daily'];
+            } else if (bmi >= 18.5 && bmi < 22) {
+                supplements = ['Vitamin D', 'Calcium', 'Omega-3', 'Magnesium', 'Probiotics', 'Coenzyme Q10', 'Collagen Peptides'];
+                dosages = ['600 IU daily', '1000mg daily', '1g daily', '400mg daily', '10 billion CFU daily', '100mg daily', '10g daily'];
+            } else if (bmi >= 22 && bmi < 24.9) {
+                supplements = ['Vitamin C', 'B-Complex', 'Omega-3', 'Antioxidants', 'Curcumin', 'Spirulina', 'Ashwagandha'];
+                dosages = ['500mg daily', '1 tablet daily', '1g daily', '1 tablet daily', '500mg daily', '3g daily', '600mg daily'];
+            } else if (bmi >= 25 && bmi < 27) {
+                supplements = ['Probiotics', 'Green Tea Extract', 'Fiber Supplements', 'L-Carnitine', 'Garcinia Cambogia', 'Chromium Picolinate', 'Apple Cider Vinegar'];
+                dosages = ['10 billion CFU daily', '500mg daily', '25g daily', '2g daily', '1000mg daily', '200mcg daily', '2 tablespoons daily'];
+            } else if (bmi >= 27 && bmi < 29.9) {
+                supplements = ['Chromium', 'CLA', 'Fiber Supplements', 'Garcinia Cambogia', 'Berberine', 'Cinnamon Extract', 'Turmeric'];
+                dosages = ['200mcg daily', '3g daily', '30g daily', '1000mg daily', '500mg daily', '250mg daily', '1000mg daily'];
+            } else if (bmi >= 30 && bmi < 35) {
+                supplements = ['Vitamin D', 'Fish Oil', 'Fiber Supplements', 'Turmeric', 'Glucomannan', 'Green Coffee Bean Extract', 'MCT Oil'];
+                dosages = ['800 IU daily', '2g daily', '30g daily', '1000mg daily', '3g daily', '500mg daily', '1 tablespoon daily'];
+            } else if (bmi >= 35 && bmi < 40) {
+                supplements = ['Vitamin D', 'Omega-3', 'Fiber Supplements', 'Apple Cider Vinegar', 'Chitosan', '5-HTP', 'Psyllium Husk'];
+                dosages = ['1000 IU daily', '2g daily', '35g daily', '2 tablespoons daily', '1000mg daily', '100mg daily', '10g daily'];
+            } else if (bmi >= 40) {
+                supplements = ['Vitamin D', 'Omega-3', 'Fiber Supplements', 'CoQ10', 'Glucomannan', 'CLA', 'White Kidney Bean Extract'];
+                dosages = ['2000 IU daily', '3g daily', '40g daily', '100mg daily', '4g daily', '3g daily', '500mg daily'];
+            } else {
+                supplements = ['Consult a healthcare provider'];
+                dosages = ['N/A'];
+            }
+
+            const supplementTable = document.getElementById('supplementTable');
+            supplementTable.innerHTML = ''; // Clear any existing rows
+
+            for (let i = 0; i < supplements.length; i++) {
+                const row = document.createElement('tr');
+
+                const supplementCell = document.createElement('td');
+                supplementCell.textContent = supplements[i];
+                row.appendChild(supplementCell);
+
+                const dosageCell = document.createElement('td');
+                dosageCell.textContent = dosages[i];
+                row.appendChild(dosageCell);
+
+                supplementTable.appendChild(row);
+            }
+
+            document.getElementById('suggestions').classList.remove('hidden');
         });
-    }
-    
     </script>
 </body>
 </html>
