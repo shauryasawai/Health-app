@@ -135,11 +135,6 @@ def book_call(request):
 
 def success(request):
     return HttpResponse("Your call has been successfully booked!")
-
-def room(request, room_name):
-    return render(request, 'base/room.html', {
-        'room_name': room_name
-    })
 def index(request):
     return render(request, 'base/index.html')
 

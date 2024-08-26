@@ -9,13 +9,13 @@
         body {
 
             /* background-color: #121212; */
-                background-image: url("static/Images/Nutrition-bg.jpeg");
+                background-image: url("/static/Images/Nutrition-bg.jpeg");
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
                 color: #ffffff;
                 font-family: 'Arial',
-                    sans-serif;
+                sans-serif;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -119,9 +119,10 @@
         <h1>Nutrition and Balanced Diet</h1>
         <p>Choose your status:</p>
         <div class="buttons">
-            <button class="btn" onclick="showDiet('student')">Student</button>
+            <button class="btn" onclick="showDiet('student')">School Students</button>
             <button class="btn" onclick="showDiet('professional')">Working Professional</button>
             <button class="btn" onclick="showDiet('retired')">Retired</button>
+            <a href="/diet"><button class="btn">College Students</button></a>
         </div>
         <div id="diet-info" class="diet-info">
             <h2 id="diet-title"></h2>
@@ -146,7 +147,8 @@
             if (status === 'student') {
                 title = 'Balanced Diet for Students';
                 description = 'Students need a balanced diet rich in proteins, vitamins, and minerals. Include foods like eggs, lean meat, fruits, vegetables, and whole grains.';
-                imageUrl = 'https://thedaily9.in/wp-content/uploads/2022/10/5f6b02a2544b1302f58b79fa_Indian-diets.jpg'; // Replace with a relevant image URL
+                imageUrl = 'https://thedaily9.in/wp-content/uploads/2022/10/5f6b02a2544b1302f58b79fa_Indian-diets.jpg';
+                imageElement = `<img src="${imageUrl}" alt="Balanced Diet for Students" style="width: 20px; height: 10px; object-fit: cover;">`;
                 dietPlan = [
                     'Breakfast: Vegetable Upma with a glass of milk',
                     'Mid-morning snack: Fresh fruit salad with a squeeze of lemon',
@@ -158,7 +160,8 @@
             } else if (status === 'professional') {
                 title = 'Balanced Diet for Working Professionals';
                 description = 'Working professionals need a diet that provides sustained energy. Include foods like nuts, seeds, whole grains, lean proteins, and plenty of water.';
-                imageUrl = 'https://lifemathmoney.b-cdn.net/wp-content/uploads/2020/09/desi-diet.jpg'; // Replace with a relevant image URL
+                imageUrl = 'https://lifemathmoney.b-cdn.net/wp-content/uploads/2020/09/desi-diet.jpg';
+                imageElement = `<img src="${imageUrl}" alt="Balanced Diet for Students" style="width: 20px; height: 10px; object-fit: cover;">`;
                 dietPlan = [
                     'Breakfast: Masala oats with vegetables and a glass of buttermilk',
                     'Mid-morning snack: A handful of mixed nuts and seeds',
@@ -170,7 +173,8 @@
             } else if (status === 'retired') {
                 title = 'Balanced Diet for Retired Individuals';
                 description = 'Retired individuals should focus on foods that support bone health and digestion. Include dairy products, leafy greens, and fiber-rich foods.';
-                imageUrl = 'https://thumbs.dreamstime.com/b/balanced-vegetarian-indian-food-plate-thali-182688475.jpg'; // Replace with a relevant image URL
+                imageUrl = 'https://thumbs.dreamstime.com/b/balanced-vegetarian-indian-food-plate-thali-182688475.jpg';
+                imageElement = `<img src="${imageUrl}" alt="Balanced Diet for Students" style="width: 20px; height: 10px; object-fit: cover;">`;
                 dietPlan = [
                     'Breakfast: Poha with peas and a side of fresh fruit',
                     'Mid-morning snack: A glass of warm milk with turmeric and honey',
