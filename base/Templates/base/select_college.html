@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Your College</title>
+</head>
+<body>
+    <h1>Select Your College and Goal</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Get Diet Plan</button>
+    </form>
+
+    {% if diet_plan %}
+        <h2>Suggested Diet Plan</h2>
+        <ul>
+            {% for plan in diet_plan %}
+                <li>{{ plan.food_item }}: {{ plan.suggested_quantity }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

@@ -55,3 +55,42 @@ class UserInput(models.Model):
     text = models.TextField()
     mood = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class College(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class FoodItem(models.Model):
+    DAY_CHOICES = [
+        ('Mon', 'Monday'),
+        ('Tue', 'Tuesday'),
+        ('Wed', 'Wednesday'),
+        ('Thu', 'Thursday'),
+        ('Fri', 'Friday'),
+        ('Sat', 'Saturday'),
+        ('Sun', 'Sunday'),
+    ]
+    day = models.CharField(max_length=3, choices=DAY_CHOICES)
+    meal_time = models.CharField(max_length=10)  # Breakfast, Lunch, Snacks, Dinner
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.get_day_display()} - {self.meal_time}"
+
+class Goal(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class DietPlan(models.Model):
+    college = models.ForeignKey(College, on_delete=models.CASCADE)
+    goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
+    food_item = models.ForeignKey(FoodItem, on_delete=models.CASCADE)
+    suggested_quantity = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.college.name} - {self.goal.name} - {self.food_item}"

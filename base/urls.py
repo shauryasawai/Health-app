@@ -11,6 +11,7 @@ from .views import custom_login
 from .views import reset_password
 from .views import CustomPasswordResetCompleteView
 from .views import bmi_calculator
+from .views import select_college_view
 
 
 
@@ -36,4 +37,6 @@ urlpatterns=[
   path('reset/done/', CustomPasswordResetCompleteView.as_view(), name='password_reset_complete'),
   path('logout/', logout_view, name='logout'),
   path('bmi/', bmi_calculator, name='bmi_calculator'),
+  path('diet/', select_college_view, name='select_college'),
+
 ]

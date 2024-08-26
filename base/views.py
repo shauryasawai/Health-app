@@ -385,3 +385,22 @@ def bmi_calculator(request):
         form = BMICalculatorForm()
 
     return render(request, 'base/bmi.html', {'form': form, 'bmi': bmi, 'category': category})
+
+from .form import CollegeForm
+from .models import DietPlan
+
+def select_college_view(request):
+    form = CollegeForm()
+    diet_plan = None
+
+    if request.method == 'POST':
+        form = CollegeForm(request.POST)
+        if form.is_valid():
+            college = form.cleaned_data['college']
+            goal = form.cleaned_data['goal']
+            diet_plan = DietPlan.objects.filter(college=college, goal=goal)
+
+    return render(request, 'base/select_college.html', {
+        'form': form,
+        'diet_plan': diet_plan,
+    })

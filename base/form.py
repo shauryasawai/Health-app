@@ -3,6 +3,7 @@ from .models import CallBooking
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.forms import UserCreationForm
+from .models import College, Goal
 
 class CallBookingForm(forms.ModelForm):
     class Meta:
@@ -68,3 +69,7 @@ class PasswordResetForm(forms.Form):
 class BMICalculatorForm(forms.Form):
     height = forms.FloatField(label='Height (cm)', min_value=0)
     weight = forms.FloatField(label='Weight (kg)', min_value=0)
+
+class CollegeForm(forms.Form):
+    college = forms.ModelChoiceField(queryset=College.objects.all(), label="Select Your College")
+    goal = forms.ModelChoiceField(queryset=Goal.objects.all(), label="Select Your Goal")
