@@ -38,5 +38,6 @@ urlpatterns=[
   path('logout/', logout_view, name='logout'),
   path('bmi/', bmi_calculator, name='bmi_calculator'),
   path('diet/', select_college_view, name='select_college'),
+  path('about/', views.about, name='about'),
 
 ]

@@ -399,3 +399,6 @@ def select_college_view(request):
         'form': form,
         'diet_plan': diet_plan,
     })
+
+def about(request):
+    return render(request, 'base/about.html')

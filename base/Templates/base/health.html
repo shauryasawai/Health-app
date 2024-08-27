@@ -1,401 +1,355 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental Health Well-being</title>
+    <title>Fitness Exercises and Yoga Asanas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
+
+        *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'urbanist',sans-serif;
+        }
+        
+        :root{
+            --bs-dark-color: #1a1d20;
+            --bs-dark-primary: #1c1c1c;
+            --bs-main-color: #fff;
+            --bs-primary-color: #c6c6c6;
+            --secondary-color: #3b92d4;
+            --bs-supporting-color: #c850c0;
+
+        }
+        h1,h2,h3,h4,h5{
+            font-family:'Lexend Deca' , sans-sesrif;
+            color: var(--bs-dark-color);
+        }
+        
+        h1{
+            font-size: 2rem;
+        }
+        h2{
+            line-height: 3rem;
+            font-weight: 600;
+            font-size: 3.4rem;
         }
 
-        header {
-            background-color: #1f1f1f;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #2a2a2a;
-        }
-
-        header h1 {
+        p{
             margin: 0;
-            font-size: 2em;
+            font-weight:400;
+            font-size: 1rem;
+            color: var(--bs-dark-color);
+            letter-spacing: 0.07rem;
+            line-height: 1.55rem;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+        }
+        a{
+           text-decoration: none;
+
+        }
+        li{
+            list-style: none;
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+        .intro-video-section{
+            max-width: 100%;
+            height: auto;
+            width: 60%;
 
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
         }
-
-        nav a:hover {
-            color: #76c7c0;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .section-title {
-            font-size: 1.8em;
-            border-bottom: 2px solid #2a2a2a;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Card Style */
-        .card-container {
+        .container{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            place-content: center;
+            height: inherit;
+
         }
 
-        .card {
-            background-color: #1f1f1f;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .bg-main{
+            height:80vh ;
+            position: relative;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        .intro-section{
+            background-attachment: fixed;
+            
+            background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://img.freepik.com/premium-photo/pink-sky-with-mountains-background_896360-1141.jpg) ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .nav-link{
+            color: var(--bs-main-color);
         }
 
-        .card h3 {
-            margin-top: 0;
+        .nav-link:hover{
+            color: var(--secondary-color);
         }
+        .custom-shape-divider-bottom-1719067987 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
 
-        /* Snake Game Styles */
-        #game-container {
-            display: grid;
-            grid-template-columns: repeat(20, 20px);
-            grid-template-rows: repeat(20, 20px);
-            gap: 1px;
-            background-color: #333;
-            margin: 20px auto;
-        }
+.custom-shape-divider-bottom-1719067987 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 92px;
+}
 
-        .cell {
-            width: 20px;
-            height: 20px;
-            background-color: #444;
-        }
+.custom-shape-divider-bottom-1719067987 .shape-fill {
+    fill: #000000;
+}
+.yoga{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: #000000;
+    height: auto;
+    padding: 5rem;
+}
+.exercise{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: #000000;
+    height: auto;
+    padding: 5rem;
+    font-family:'Lexend Deca' , sans-sesrif;
+    color: white;
+    font-size: 2rem;
 
-        .snake {
-            background-color: #76c7c0;
-        }
+}
+.card-body{
+    height: 350px;
+}
 
-        .food {
-            background-color: #f00;
-        }
 
-        #score {
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
 
-        footer {
-            background-color: #1f1f1f;
-            text-align: center;
-            padding: 20px;
-            border-top: 2px solid #2a2a2a;
-        }
+.health-yoga-exercise{
+    background-color: #000000;
+}       
+.card{
+    transition: all 0.3s;
+    }
 
-        footer p {
-            margin: 0;
-        }
-        .puzzle-container, .memory-container {
-            display: grid;
-            gap: 5px;
-            justify-content: center;
-        }
-        .puzzle-container {
-            grid-template-columns: repeat(4, 100px);
-            grid-template-rows: repeat(4, 100px);
-        }
-        .memory-container {
-            grid-template-columns: repeat(4, 100px);
-            grid-template-rows: repeat(4, 100px);
-        }
-        .puzzle-tile, .memory-tile {
-            background-color: #76c7c0;
-            color: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            cursor: pointer;
-            user-select: none;
-        }
-        .memory-tile {
-            background-color: #1f1f1f;
-            border: 2px solid #76c7c0;
-        }
-        .memory-tile.flipped {
-            background-color: #76c7c0;
-        }
-        .contact-form {
-            background-color: #1f1f1f;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        .contact-form form {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-form label {
-            margin-bottom: 5px;
-        }
-        .contact-form input {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            padding: 10px;
-            background-color: #6200ee;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;}
+ .card:hover{
+    transform: scale(1.03);
+ }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Mental Health Well-being</h1>
-    </header>
-    <nav>
-        <a href="#tips">Tips & Tricks</a>
-        <a href="#articles">Motivational Articles</a>
-        <a href="#games">Fun Games</a>
-        <a href="/quizzes">Let Us Help</a>
-    </nav>
+<!-- nav bar -->
+  <nav id="navbar-example2" class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container">
+        <a class="navbar-brand" href="#">Health Corner</a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading1">Tips & Tricks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading2">Motivational Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading2">Fun Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/quizzes">Let Us Help</a>
+          </li>
+    </div>
+      </nav>
+    <!-- nav-bar section end -->
+
+
+     <!-- introduction section start -->
+     <section class="bg-main bg-color intro-section">
+
+      <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex flex-column justify-content-center align-items-start">
+
+                <h1 class="text-white">Maximize Your Workout: Essential Fitness Exercises and Yoga Asanas</h1>
+                <p class="text-white">Unlock your full potential with our comprehensive guide to top fitness exercises and transformative yoga asanas</p>
+                
+            </div>
+        </div>
+      </div>
+      <div class="custom-shape-divider-bottom-1719067987">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
+        </svg>
+    </div>
+</section>
+<!-- introduction section end -->
+
+<!-- yoga-section -->
+ <section>
+    <div class="yoga" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+        <h1 class="text-white" id="scrollspyHeading1" >Tips & Tricks</h1>
+    </div>
+ </section>
+
+
+
+
+
+<section class="health-yoga-exercise" style="background-color: #000000;">
     <div class="container">
-        <!-- Tips & Tricks Section -->
-        <section id="tips" class="tips">
-            <div class="section-title">Tips & Tricks</div>
-            <div class="card-container">
-                <!-- Card content as before -->
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
-                    <h3>Tip 1: Practice Mindfulness and Meditation</h3>
-                    <p>Mindfulness: Spend a few minutes each day being mindful of your thoughts and surroundings. This can help reduce stress and anxiety.</p>
-                    <p>Meditation: Regular meditation can help calm the mind, improve focus, and enhance emotional resilience.</p>
-                </div>
-                <div class="card">
-                    <h3>Tip 2: Build a Support System</h3>
-                    <p>Stay Connected: Maintain relationships with family and friends. Regular social interactions can provide emotional support.</p>
-                    <p>Join Clubs and Activities: Engage in extracurricular activities that interest you. This can help you make new friends and reduce feelings of isolation.</p>
-                </div>
-                <div class="card">
-                    <h3>Tip 3: Engage in Creative Activities</h3>
-                    <p>Engage in regular physical activity. Exercise is known to boost mood and energy levels.</p>
-                    <p>Hobbies: Pursue activities that you enjoy, such as drawing, writing, playing music, or crafting. Creative outlets can be therapeutic.</p>
-                </div>
-                <div class="card">
-                    <h3>Tip 4: Practice Relaxation Techniques</h3>
-                    <p>Deep Breathing: Take deep, slow breaths to calm the nervous system and reduce stress.</p>
-                    <p>Progressive Muscle Relaxation: Tense and then release each muscle group in your body to release physical tension.</p>
-                </div>
-                <div class="card">
-                    <h3>Tip 5: Avoid Negative Habits</h3>
-                    <p>Limit Substance Use: Avoid relying on alcohol, drugs, or caffeine to cope with stress.</p>
-                    <p>Reduce Screen Time: Excessive use of social media and electronic devices can negatively impact mental health. Set boundaries and take digital detoxes when necessary.</p>
+                    
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="push-ups" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Practice Mindfulness and Meditation</h5>
+                        <p class="card-text">Mindfulness: Spend a few minutes each day being mindful of your thoughts and surroundings. This can help reduce stress and anxiety.</p>
+                        <br>
+                        <p class="card-text">Meditation: Regular meditation can help calm the mind, improve focus, and enhance emotional resilience.</p>
+                    </div>
                 </div>
             </div>
-                <!-- Additional tips -->
-            </div>
-        </section>
-
-        <!-- Motivational Articles Section -->
-        <section id="articles" class="articles">
-            <div class="section-title">Motivational Articles</div>
-            <div class="card-container">
-                <!-- Card content as before -->
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
-                    <h3>Article 1: Overcoming Challenges</h3>
-                    <p>Facing life's challenges with resilience and a positive mindset is key to navigating the ups and downs that life brings. Life is filled with unpredictable events, obstacles, and hardships, but developing resilience and maintaining a positive outlook can make all the difference.</p>
-                </div>
-                <div class="card">
-                    <h3>Article 2: The Power of Positivity</h3>
-                    <p>Maintaining a positive outlook on life can have profound and transformative effects on your overall well-being. The power of positivity extends beyond mere happiness; it influences your mental, emotional, and even physical health.</p>
-                </div>
-                <div class="card">
-                <h3>Article 3: Overcoming Procrastination</h3>
-                    <p>Procrastination can be a major source of stress for students. This article provides practical tips for overcoming procrastination, setting realistic goals, and staying motivated throughout the academic year.</p>
-                </div>
-                <div class="card">
-                    <h3>Article 4: Building Resilience in Life</h3>
-                    <p>Resilience is the ability to recover from challenges and setbacks. This article discusses the importance of resilience and offers strategies for building and strengthening this essential skill.</p>
-                </div>
-                <div class="card">
-                    <h3>Article 5: Managing Academic Stress</h3>
-                    <p>Academic stress is a common issue for students. This article offers strategies for managing stress, maintaining a healthy work-life balance, and seeking help when needed.</p>
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="squats" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Build a Support System</h5>
+                        <p class="card-text">Stay Connected: Maintain relationships with family and friends. Regular social interactions can provide emotional support.</p>
+                        <br>
+                        <p class="card-text">Join Clubs and Activities: Engage in extracurricular activities that interest you. This can help you make new friends and reduce feelings of isolation.</p>
+                    </div>
                 </div>
             </div>
-                <!-- Additional articles -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="plank" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Engage in Creative Activities</h5>
+                        <p class="card-text">Engage in regular physical activity. Exercise is known to boost mood and energy levels.</p>
+                        <br>
+                        <p class="card-text">Hobbies: Pursue activities that you enjoy, such as drawing, writing, playing music, or crafting. Creative outlets can be therapeutic.</p>
+                </div>
+                </div>
             </div>
-        </section>
-
-        <section id="games" class="games">
-            <div class="section-title">Fun Games</div>
-        <div class="game">
-            <h3>Game 1: Puzzle Solver</h3>
-            <div id="puzzle-container" class="puzzle-container"></div>
-            <button onclick="shuffleTiles()">Shuffle</button>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="Downward dog" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Practice Relaxation Techniques</h5>
+                        <p class="card-text">Deep Breathing: Take deep, slow breaths to calm the nervous system and reduce stress.</p>
+                        <br>
+                        <p class="card-text">Progressive Muscle Relaxation: Tense and then release each muscle group in your body to release physical tension.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="tree-pose" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Avoid Negative Habits</h5>
+                        <p class="card-text">Limit Substance Use: Avoid relying on alcohol, drugs, or caffeine to cope with stress.</p>
+                        <br>
+                        <p class="card-text">Reduce Screen Time: Excessive use of social media and electronic devices can negatively impact mental health. Set boundaries and take digital detoxes when necessary.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="game">
-            <h3>Game 2: Memory Match</h3>
-            <div id="memory-container" class="memory-container"></div>
-            <button onclick="initMemoryGame()">Restart</button>
-        </div>
-    </section>
-    <section class="contact-form">
-        <h2>Book a Call with Our Health Experts</h2>
-        <form method="post" action="{% url 'book_call' %}">
-            {% csrf_token %}
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="date">Preferred Date:</label>
-            <input type="date" id="date" name="date" required>
-            <button type="submit">Book Now</button>
-        </form>
-    </section>
-    <footer>
-        <p>&copy; 2024 Fitness Supplements. All rights reserved.</p>
-    </footer>
-    <script>
-
-        // Puzzle Solver Game
-        const puzzleContainer = document.getElementById('puzzle-container');
-        let tiles = [];
-
-        function initPuzzle() {
-            for (let i = 1; i <= 15; i++) {
-                const tile = document.createElement('div');
-                tile.classList.add('puzzle-tile');
-                tile.textContent = i;
-                tile.addEventListener('click', () => moveTile(i));
-                tiles.push(tile);
-                puzzleContainer.appendChild(tile);
-            }
-            const emptyTile = document.createElement('div');
-            emptyTile.classList.add('puzzle-tile');
-            tiles.push(emptyTile);
-            puzzleContainer.appendChild(emptyTile);
-        }
-
-        function moveTile(index) {
-            const tileIndex = tiles.findIndex(tile => tile.textContent == index);
-            const emptyIndex = tiles.findIndex(tile => !tile.textContent);
-            const validMoves = [
-                tileIndex - 1, // left
-                tileIndex + 1, // right
-                tileIndex - 4, // up
-                tileIndex + 4  // down
-            ];
-            if (validMoves.includes(emptyIndex) &&
-                (Math.abs(tileIndex - emptyIndex) === 1 || Math.abs(tileIndex - emptyIndex) === 4)) {
-                swapTiles(tileIndex, emptyIndex);
-            }
-        }
-
-        function swapTiles(index1, index2) {
-            const temp = tiles[index1];
-            tiles[index1] = tiles[index2];
-            tiles[index2] = temp;
-            renderPuzzle();
-        }
-
-        function renderPuzzle() {
-            puzzleContainer.innerHTML = '';
-            tiles.forEach(tile => puzzleContainer.appendChild(tile));
-        }
-
-        function shuffleTiles() {
-            for (let i = tiles.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                swapTiles(i, j);
-            }
-        }
-
-        initPuzzle();
-
-        // Memory Match Game
-        const memoryContainer = document.getElementById('memory-container');
-        let memoryTiles = [];
-        let flippedTiles = [];
-        let matchedTiles = [];
-
-        function initMemoryGame() {
-            memoryContainer.innerHTML = '';
-            memoryTiles = [];
-            flippedTiles = [];
-            matchedTiles = [];
-            const numbers = [...Array(8).keys()].map(n => n + 1);
-            const pairs = [...numbers, ...numbers];
-            pairs.sort(() => Math.random() - 0.5);
-
-            pairs.forEach(number => {
-                const tile = document.createElement('div');
-                tile.classList.add('memory-tile');
-                tile.dataset.number = number;
-                tile.addEventListener('click', () => flipTile(tile));
-                memoryTiles.push(tile);
-                memoryContainer.appendChild(tile);
-            });
-        }
-
-        function flipTile(tile) {
-            if (flippedTiles.length < 2 && !tile.classList.contains('flipped')) {
-                tile.classList.add('flipped');
-                tile.textContent = tile.dataset.number;
-                flippedTiles.push(tile);
-                if (flippedTiles.length === 2) {
-                    checkMatch();
-                }
-            }
-        }
-
-        function checkMatch() {
-            const [tile1, tile2] = flippedTiles;
-            if (tile1.dataset.number === tile2.dataset.number) {
-                matchedTiles.push(tile1, tile2);
-                flippedTiles = [];
-                if (matchedTiles.length === memoryTiles.length) {
-                    setTimeout(() => alert('You won!'), 500);
-                }
-            } else {
-                setTimeout(() => {
-                    tile1.classList.remove('flipped');
-                    tile2.classList.remove('flipped');
-                    tile1.textContent = '';
-                    tile2.textContent = '';
-                    flippedTiles = [];
-                }, 1000);
-            }
-        }
-
-        initMemoryGame();
-    </script>
+    </div>
 
     
+    
+</section>
+
+<!-- exercise-section -->
+<section>
+    <div class="exercise" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+        <h1 class="text-white" id="scrollspyHeading2"></h1>EXERCISE</h1>
+    </div>
+ </section>
+
+<section class="health-yoga-exercise" style="background-color: #000000"; data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+    <div class="container" id="scrollspyHeading3" >
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="push-ups" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Push-Ups</h5>
+                        <p class="card-text">Push-ups are a basic exercise used in civilian athletic training or physical education and commonly in military physical training. They are a common form of punishment used in the military, or in some martial arts disciplines. Perform them by lying prone, then raising and lowering the body using the arms.These need to be performed in proper form</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="squats" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Squats</h5>
+                        <p class="card-text">Squats are a lower body exercise. The main emphasis is on the quadriceps and the glutes, but the squat also strengthens the hamstrings, calves, the lower back, and the core. To perform squats, stand with your feet shoulder-width apart, lower your hips back and down, then rise back up to standing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="plank" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Plank</h5>
+                        <p class="card-text">The plank is an isometric core strength exercise that involves maintaining a position similar to a push-up for the maximum possible time. To perform a plank, get into a push-up position and hold your body off the ground with your arms straight and toes on the ground.A plank exercise is the best exercise to strengthen your core and abdomen.The isometric exercise can build muscle strength and endurance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="Downward dog" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Downward Dog (Adho Mukha Svanasana)</h5>
+                        <p class="card-text">Downward Dog is a foundational yoga pose that stretches the entire body, particularly the hamstrings, calves, and shoulders. Begin on your hands and knees, then lift your hips up and back, straightening your legs and arms.Downward dog stretches and helps to relieve tension from the neck and back.It might help to reduce body mass index. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="tree-pose" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Tree Pose (Vrikshasana)</h5>
+                        <p class="card-text">Tree Pose is a balancing pose that strengthens the legs, core, and back while improving focus and concentration. Start by standing on one leg, placing the foot of the opposite leg on the inner thigh, and bringing your hands to a prayer position.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{% static 'img/Pushups.jpg' %}" alt="Cobra" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cobra Pose (Bhujangasana)</h5>
+                        <p class="card-text">Cobra Pose is a gentle backbend that stretches the abdomen, chest, and shoulders. Lie on your stomach, place your hands under your shoulders, and gently lift your chest off the ground while keeping your hips on the floor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
