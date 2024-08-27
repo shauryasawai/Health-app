@@ -9,6 +9,7 @@
 <style>
     body {
         display: flex;
+        background: url("https://static.vecteezy.com/system/resources/previews/008/889/844/non_2x/quiz-set-in-doodle-style-illustration-icon-question-symbol-for-print-and-design-quiz-and-exam-concept-isolated-element-on-black-background-collection-of-sign-for-school-and-event-vector.jpg");
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -22,17 +23,20 @@
     }
 
     .main {
-        background-color: rgb(62, 62, 62);
+        background-color: white;
         padding: 20px 30px;
         border: none;
         border-radius: 15px;
         margin: 50px;
     }
+    .text{
+        color: black;
+    }
 </style>
 
 <body>
     <div class="main">
-        <h1>Available Quizzes</h1>
+        <h1 class='text'>Available Quizzes</h1>
         <ul>
             {% for quiz in quizzes %}
             <li><a href="{% url 'take_quiz' quiz.id %}">{{ quiz.title }}</a></li>
