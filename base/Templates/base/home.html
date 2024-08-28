@@ -119,7 +119,100 @@
 .dropdown-item:hover{
     color: blue;
     font: bold;
-}</style>
+}
+@media (max-width: 1024px) {
+    .website-name {
+        font-size: 100px;
+    }
+
+    .text-1 {
+        width: 50vw;
+        font-size: 18px;
+    }
+
+    .navbar {
+        width: 90vw;
+        padding: 6px 30px;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-item {
+        padding: 5px 15px;
+    }
+
+    .dropdown {
+        align-self: flex-end;
+    }
+}
+
+
+    .nav-item {
+        font-size: 14px;
+    }
+
+
+@media (max-width: 768px) {
+    .website-name {
+        font-size: 80px;
+    }
+
+    .text-1 {
+        width: 70vw;
+        font-size: 16px;
+    }
+
+    .navbar {
+        width: 95vw;
+        padding: 5px 20px;
+    }
+
+    .nav-item {
+        font-size: 12px;
+    }
+
+    .video {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .website-name {
+        font-size: 50px;
+    }
+
+    .text-1 {
+        width: 90vw;
+        font-size: 14px;
+        padding: 20px;
+    }
+
+    .navbar {
+        width: 100vw;
+        padding: 4px 10px;
+    }
+
+    .nav-item {
+        font-size: 10px;
+    }
+
+    .video {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+    }
+}
+</style>
 <body>
     <div class="video-div">
         <video autoplay loop class="video" src="/static/Images/WhatsApp Video 2024-08-25 at 7.11.41 PM.mp4"></video>  
